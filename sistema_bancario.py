@@ -79,7 +79,7 @@ while True:
 
     elif opcao == 3:
         print(f'''    {" Extrato ".center(30, "=")}
-{extrato}
+{"Nenhuma operação foi realizada" if not extrato else extrato}
 
 Saldo atual - R${saldo:.2f}
     {"".center(30, "=")}''')   
