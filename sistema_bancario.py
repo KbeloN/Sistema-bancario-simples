@@ -1,4 +1,4 @@
-saldo = 1000.00
+saldo = 0
 extrato = ""
 saques_feitos = 0
 LIMITE_SAQUE_DIARIO = 3
@@ -35,7 +35,7 @@ def saque():
         print("Saque feito com sucesso!")
         saldo -= saque
         saques_feitos += 1
-        extrato += f"Saque - R${saque:.2f}, Saldo atual - R${saldo:.2f}\n"
+        extrato += f"Saque - R${saque:.2f}\n"
     else:
         print("Não foi possível realizar o saque com o valor apresentado.")
 
@@ -48,18 +48,15 @@ def depositar():
     if deposito > 0.00:
         print("Deposito feito com sucesso!")
         saldo += deposito
-        extrato += f"Deposito - R${deposito:.2f}, Saldo atual - R${saldo:.2f}\n"
+        extrato += f"Deposito - R${deposito:.2f}\n"
     else:
         print("Não foi possível realizar o depósito com o valor apresentado.")
-
 
 # Sistema bancário
 
 while True:
     menu = f'''
     {" Menu ".center(30, "=")}
-        Saldo atual: R${saldo:.2f}
-    
         1 - Sacar
         2 - Depositar
         3 - Extrato
@@ -81,10 +78,11 @@ while True:
         depositar()   
 
     elif opcao == 3:
-        print(f'''{"Extrato".center(30, "=")}
-
+        print(f'''    {" Extrato ".center(30, "=")}
 {extrato}
-{"".center(30, "=")}''')   
+
+Saldo atual - R${saldo:.2f}
+    {"".center(30, "=")}''')   
 
     elif opcao == 0:
         print("Saindo do sistema...")
